@@ -35,7 +35,10 @@
         $querys[] = "CREATE TABLE articles (articleID int NOT NULL PRIMARY KEY,title longtext NOT NULL,subtitle longtext NOT NULL,text longtext NOT NULL,attachment longtext NOT NULL,createdAt datetime NOT NULL,creatorID int NOT NULL,lastEditorID int NOT NULL,lastEdited datetime NOT NULL,categoryID int NOT NULL) Engine=InnoDB";
 
         foreach ($querys as $query) {
-
+            $sql->query($query);
+            if($sql->error){
+                die($sql->error);
+            }
         }
 
     }
