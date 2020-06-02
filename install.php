@@ -32,7 +32,7 @@
         //Categories Table
         $querys[] = "CREATE TABLE categories (categoryID int NOT NULL PRIMARY KEY, name varchar(200) NOT NULL) Engine=InnoDB";
         //Articles Table
-        $querys[] = "CREATE TABLE articles (articleID int NOT NULL PRIMARY KEY) Engine=InnoDB";
+        $querys[] = "CREATE TABLE articles (articleID int NOT NULL PRIMARY KEY,title longtext NOT NULL,subtitle longtext NOT NULL,text longtext NOT NULL,attachment longtext NOT NULL,createdAt datetime NOT NULL,creatorID int NOT NULL,lastEditorID int NOT NULL,lastEdited datetime NOT NULL,categoryID int NOT NULL) Engine=InnoDB";
 
         foreach ($querys as $query) {
 
