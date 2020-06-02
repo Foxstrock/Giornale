@@ -19,12 +19,21 @@
         }
     }else{
         //Install 1.0
+        //DROP TABLES
+        $querys[] = "DROP TABLE IF EXISTS status";
+        $querys[] = "DROP TABLE IF EXISTS userStatus";
+        $querys[] = "DROP TABLE IF EXISTS levels";
+        $querys[] = "DROP TABLE IF EXISTS userLevels";
+        $querys[] = "DROP TABLE IF EXISTS system";
+        $querys[] = "DROP TABLE IF EXISTS categories";
+        $querys[] = "DROP TABLE IF EXISTS articles";
+
         //Status table
         $querys[] = "CREATE TABLE status (statusID int NOT NULL PRIMARY KEY, name varchar(200) NOT NULL, active tinyint NOT NULL) Engine=InnoDB";
         //userStatus table
         $querys[] = "CREATE TABLE userStatus (statusID int NOT NULL, userID int NOT NULL) Engine=InnoDB";
         //Levels table
-        $querys[] = "CREATE TABLE levels (levelID int NOT NULL PRIMARY KEY, name varchar(200) NOT NULL, subscriber tinyint NOT NULL, subscriber editor NOT NULL, subscriber director NOT NULL) Engine=InnoDB";
+        $querys[] = "CREATE TABLE levels (levelID int NOT NULL PRIMARY KEY, name varchar(200) NOT NULL, subscriber tinyint NOT NULL, editor tinyint NOT NULL, director tinyint NOT NULL) Engine=InnoDB";
         //userLevels table
         $querys[] = "CREATE TABLE userLevels (levelID int NOT NULL, userID int NOT NULL) Engine=InnoDB";
         //System Table
