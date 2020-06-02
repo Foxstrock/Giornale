@@ -4,3 +4,5 @@
 <script type="text/javascript" src="js/popper.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<?php
+    include 'config.php';
