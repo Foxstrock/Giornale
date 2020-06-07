@@ -119,7 +119,7 @@
             $name = $_POST['name'];
             $surname = $_POST['surname'];
             $email = $_POST['email'];
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
             $passwordConfirm = $_POST['passwordConfirm'];
             $address = $_POST['address'];
             $birthdate = $_POST['birthdate'];

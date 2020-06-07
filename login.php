@@ -23,6 +23,8 @@
                     $_SESSION['user']['surname'] = $user['surname'];
                     $_SESSION['user']['email'] = $user['email'];
                     $_SESSION['user']['id'] = $user['userID'];
+
+                    header("location: index.php");
                 }else{
                     die("Password errata");
                 }
