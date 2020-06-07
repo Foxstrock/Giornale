@@ -6,3 +6,5 @@
 <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
 <?php
     include 'config.php';
+    @session_start();
+    print_r($_SESSION);
