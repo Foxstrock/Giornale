@@ -15,6 +15,7 @@
             print_r($_POST);
             $username = $_POST['email'];
             $password = md5($_POST['password']);
+            $password = trim($password, "\t\n\r\0\x0B");
             if($sql->query("SELECT * FROM users WHERE email='$username'")->num_rows > 0){
                 if($sql->query("SELECT * FROM users WHERE email='$username' AND passsword='$password'")->num_rows > 0){
                     $user = $sql->query("SELECT * FROM users WHERE email='$username'")->fetch_array();
