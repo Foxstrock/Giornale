@@ -10,6 +10,7 @@
         <?php
     }elseif ($_SERVER['REQUEST_METHOD']=="POST"){
         if (isset($_POST['login'])){
+            print_r($_POST);
             $username = $_POST['username'];
             $password = md5($_POST['password']);
             if($sql->query("SELECT * FROM users WHERE username='$username'")->num_rows > 0){
