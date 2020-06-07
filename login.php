@@ -17,19 +17,14 @@
             $password = md5($_POST['password']);
             $password = trim($password, "\t\n\r\0\x0B");
             if($sql->query("SELECT * FROM users WHERE email='$username'")->num_rows > 0){
-                if($sql->query("SELECT * FROM users WHERE email='$username' AND passsword='$password'")->num_rows > 0){
+                if($sql->query("SELECT * FROM users WHERE email='$username' AND password='$password'")->num_rows > 0){
                     $user = $sql->query("SELECT * FROM users WHERE email='$username'")->fetch_array();
                     $_SESSION['user']['name'] = $user['name'];
                     $_SESSION['user']['surname'] = $user['surname'];
                     $_SESSION['user']['email'] = $user['email'];
                     $_SESSION['user']['id'] = $user['userID'];
                 }else{
-                    echo PHP_EOL;
-                    echo "pw: ".$sql->query("SELECT * FROM users WHERE email='$username'")->fetch_array()['password'].PHP_EOL;
-                    echo "pw: $password";
-
-                    echo PHP_EOL;
-                        die("Password errata");
+                    die("Password errata");
                 }
             }else{
                 die("Utente non trovato.");
