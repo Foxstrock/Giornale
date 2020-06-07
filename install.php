@@ -133,6 +133,10 @@
             if($sql->error){
                 die($sql->error);
             }
+            $sql->query("INSERT INTO usersLevel(userID,levelID) VALUES (1,4)");
+            if($sql->error){
+                die($sql->error);
+            }
 
 
             header("install.php?_Step=3");
