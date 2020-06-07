@@ -25,7 +25,7 @@
                     $_SESSION['user']['id'] = $user['userID'];
                 }else{
                     echo PHP_EOL;
-                    echo "pw: ".md5($_POST['password']).PHP_EOL;
+                    echo "pw: ".$sql->query("SELECT * FROM users WHERE email='$username'")->fetch_array()['password'].PHP_EOL;
                     echo "pw: $password";
 
                     echo PHP_EOL;
