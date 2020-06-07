@@ -3,7 +3,9 @@
     if($_SERVER["REQUEST_METHOD"]=="GET"){
         ?>
         <form method="post" action="#login">
+            E-Mail:<br>
             <input type="text" id="email" name="email"><br>
+            Password:<br>
             <input type="password" id="password" name="password"><br>
             <input type="submit" id="login" name="login" value="Accedi!">
         </form>
