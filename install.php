@@ -120,7 +120,7 @@
             $surname = $_POST['surname'];
             $email = $_POST['email'];
             $password = md5($_POST['password']);
-            $passwordConfirm = $_POST['passwordConfirm'];
+            $passwordConfirm = md5($_POST['passwordConfirm']);
             $address = $_POST['address'];
             $birthdate = $_POST['birthdate'];
             $createdAt = date('Y-m-d H:i:s');
