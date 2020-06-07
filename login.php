@@ -27,7 +27,7 @@
                     echo "pw: ".md5($_POST['password']).PHP_EOL;
                     echo "pw: $password";
 
-                    print_r();
+                    echo PHP_EOL;
                         die("Password errata");
                 }
             }else{
