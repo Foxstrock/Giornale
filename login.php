@@ -23,7 +23,11 @@
                     $_SESSION['user']['email'] = $user['email'];
                     $_SESSION['user']['id'] = $user['userID'];
                 }else{
-                    die("Password errata");
+
+                    print_r($_POST);
+
+                    print_r($sql->query("SELECT * FROM users")->fetch_array());
+                        die("Password errata");
                 }
             }else{
                 die("Utente non trovato.");
