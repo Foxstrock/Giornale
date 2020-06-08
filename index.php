@@ -4,6 +4,6 @@
 
 <body>
     <div>
-        <h1>Barcellona P.G. News</h1>
+        <h2>Barcellona P.G. News</h2>
     </div>
 </body>
