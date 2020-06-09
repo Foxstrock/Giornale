@@ -3,7 +3,7 @@
     if($_SERVER['REQUEST_METHOD']=="GET"){
 ?>
 
-        <form action="#signup" method="post" action="#signup">
+        <form action="#signup" method="POST">
             Nome:<br>
             <input type="text" id="name" name="name"><br>
             Cognome:<br>
@@ -21,7 +21,7 @@
             <input type="submit" value="Invia">
         </form>
         <?php
-}elseif($_SERVER['REQUEST_METHOD']=="POST") {
+    }elseif($_SERVER['REQUEST_METHOD']=="POST") {
 
 
         $Name = $_POST['name'];
@@ -38,20 +38,21 @@
             die();
         }
         $password = md5($passwordConf);
-        $sql->query("INSERT INTO users (name, surname, email, address, birthdate, password, createdAt) VALUES ('$Name', '$surname', '$email', '$address', '$address', '$birthdate', '$password', '$createdAt')");
-        if ($sql->error) {
-            die($sql->error);
-        }
         /*
-        $id = mysqli_result($sql->query("Select userID from users where email='$email'"), "userID");
-        if ($sql->error) {
-            die($sql->error);
-        }
+       $sql->query("INSERT INTO users (name, surname, email, address, birthdate, password, createdAt) VALUES ('$Name', '$surname', '$email', '$address', '$address', '$birthdate', '$password', '$createdAt')");
+       if ($sql->error) {
+           die($sql->error);
+       }
 
-        $sql->query("INSERT INTO usersLevel (userID,levelID) VALUES ('$id', 0)");
-        if ($sql->error) {
-            die($sql->error);
-        }
-        */
+       $id = mysqli_result($sql->query("Select userID from users where email='$email'"), "userID");
+       if ($sql->error) {
+           die($sql->error);
+       }
+
+       $sql->query("INSERT INTO usersLevel (userID,levelID) VALUES ('$id', 0)");
+       if ($sql->error) {
+           die($sql->error);
+       }
+       */
     }
 ?>
