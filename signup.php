@@ -3,7 +3,7 @@
     if($_SERVER['REQUEST_METHOD']=="GET"){
 ?>
 
-        <form action="#signup" method="post">
+        <form action="#signup" method="post" action="#signup">
             Nome:<br>
             <input type="text" id="name" name="name"><br>
             Cognome:<br>
