@@ -43,7 +43,7 @@
             die($sql->error);
         }
 
-        $id = $sql->query("Select userID from users where email='$email'");
+        $id = mysqli_result($sql->query("Select userID from users where email='$email'"), "userID");
         if ($sql->error) {
             die($sql->error);
         }
