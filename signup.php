@@ -21,6 +21,33 @@
 
 <?php
 
+$Name=$_POST['name'];
+$surname=$_POST['surname'];
+$email=$_POST['email'];
+$address=$_POST['address'];
+$birthdate=$_POST['birthdate'];
+$password=$_POST['password'];
+$passwordConf=$_POST['passwordConf'];
+$createdAt = date('Y-m-d H:i:s');
 
+if($password!==$passwordConf){
+    echo "Le password non corrispondono";
+    die();
+}
+$password=md5($passwordConf);
+$sql->query("INSERT INTO users (name, surname, email, address, birthdate, password, createdAt) VALUES ('$Name', '$surname', '$email', '$address', '$address', '$birthdate', '$password', '$createdAt')");
+if($sql->error){
+    die($sql->error);
+}
+
+$id=$sql->query("Select userID from users where email='$email'");
+if($sql->error){
+    die($sql->error);
+}
+
+$sql->query("INSERT INTO usersLevel (userID,levelID) VALUES ('$id', 0)");
+if($sql->error){
+    die($sql->error);
+}
 
 ?>
