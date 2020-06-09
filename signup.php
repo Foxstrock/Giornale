@@ -17,6 +17,7 @@
     <input type="password" id="password" name="password"><br>
     Conferma password:<br>
     <input type="password" id="passwordConf" name="passwordConf"><br>
+    <input type="submit" value="Invia">
 </form>
 
 <?php
