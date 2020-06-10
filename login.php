@@ -24,9 +24,9 @@
                     $_SESSION['user']['email'] = $user['email'];
                     $_SESSION['user']['id'] = $user['userID']; 
                     $userID = $user['userID'];
-                    $levelID = $sql->query("SELECT levelID FROM userLevel WHERE userID='$userID'")->fetch_array()['levelID'];
+                    $levelID = $sql->query("SELECT levelID FROM userLevels WHERE userID='$userID'")->fetch_array()['levelID'];
                     $_SESSION['user']['levelID'] = $levelID;
-                    $_SESSION['user']['levelName'] = $sql->query("SELECT name FROM level WHERE levelID='$levelID'")->fetch_array()['name'];
+                    $_SESSION['user']['levelName'] = $sql->query("SELECT name FROM levels WHERE levelID='$levelID'")->fetch_array()['name'];
  
                     header("location: index.php");
                 }else{
