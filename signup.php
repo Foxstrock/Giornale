@@ -43,10 +43,8 @@
        if ($sql->error) {
            die($sql->error);
        }
-       echo "Dati inseriti";
-
-        /*
-       $id = mysqli_result($sql->query("Select userID from users where email='$email'"), "userID");
+        
+       $id = mysqli_result($sql->query("SELECT userID FROM users WHERE email='$email'")-fetch_array()['userID'];
        if ($sql->error) {
            die($sql->error);
        }
@@ -55,6 +53,6 @@
        if ($sql->error) {
            die($sql->error);
        }
-       */
+       header("location: login.php");
     }
 ?>
