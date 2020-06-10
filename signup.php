@@ -45,7 +45,7 @@
            die($sql->error);
        }
         
-       $id = mysqli_result($sql->query("SELECT userID FROM users WHERE email='$email'")-fetch_array()['userID'];
+       $id = $sql->query("SELECT userID FROM users WHERE email='$email'")->fetch_array()['userID'];
        if ($sql->error) {
            die($sql->error);
        }
