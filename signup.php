@@ -43,18 +43,16 @@
        if ($sql->error) {
            die($sql->error);
        }
-       echo "Dati inseriti";
-
-        /*
-       $id = mysqli_result($sql->query("Select userID from users where email='$email'"), "userID");
+        
+       $id = mysqli_result($sql->query("SELECT userID FROM users WHERE email='$email'")-fetch_array()['userID'];
        if ($sql->error) {
            die($sql->error);
        }
 
-       $sql->query("INSERT INTO usersLevel (userID,levelID) VALUES ('$id', 0)");
+       $sql->query("INSERT INTO userLevels (userID,levelID) VALUES ('$id', 0)");
        if ($sql->error) {
            die($sql->error);
        }
-       */
+       header("location: login.php");
     }
 ?>
