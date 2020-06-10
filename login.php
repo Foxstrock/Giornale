@@ -22,8 +22,12 @@
                     $_SESSION['user']['name'] = $user['name'];
                     $_SESSION['user']['surname'] = $user['surname'];
                     $_SESSION['user']['email'] = $user['email'];
-                    $_SESSION['user']['id'] = $user['userID'];
-
+                    $_SESSION['user']['id'] = $user['userID']; 
+                    $userID = $user['userID'];
+                    $levelID = $sql->query("SELECT levelID FROM userLevels WHERE userID='$userID'")->fetch_array()['levelID'];
+                    $_SESSION['user']['levelID'] = $levelID;
+                    $_SESSION['user']['levelName'] = $sql->query("SELECT name FROM levels WHERE levelID='$levelID'")->fetch_array()['name'];
+ 
                     header("location: index.php");
                 }else{
                     die("Password errata");
