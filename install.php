@@ -138,7 +138,7 @@
                 die($sql->error);
             }
 
-            die("prova");
+            die("prova ");
 
             header("install.php?_Step=3");
         }
