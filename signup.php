@@ -39,7 +39,8 @@
         }
         $password = md5($passwordConf);
 
-       $sql->query("INSERT INTO users (name, surname, email, address, birthdate, password, createdAt) VALUES ('$name', '$surname', '$email', '$address', '$birthdate', '$password', '$createdAt')");
+       $sql->query("INSERT INTO users (name, surname, email, address, birthdate, password, createdAt) VALUES ('$Name', '$surname', '$email', '$address', '$birthdate', '$password', '$createdAt')");
+
        if ($sql->error) {
            die($sql->error);
        }
