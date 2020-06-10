@@ -133,7 +133,7 @@
             if($sql->error){
                 die($sql->error);
             }
-            $sql->query("INSERT INTO userLevel (userID,levelID) VALUES (1,4)");
+            $sql->query("INSERT INTO userLevels (userID,levelID) VALUES (1,4)");
             if($sql->error){
                 die($sql->error);
             }

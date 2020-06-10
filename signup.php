@@ -1,4 +1,6 @@
+
 <?php
+//Gestire i duplicati sul database.
     include "header.php";
     if($_SERVER['REQUEST_METHOD']=="GET"){
 ?>
