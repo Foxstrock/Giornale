@@ -50,7 +50,7 @@
            die($sql->error);
        }
 
-       $sql->query("INSERT INTO userLevels (userID,levelID) VALUES ('$id', 0)");
+       $sql->query("INSERT INTO userLevels (userID,levelID) VALUES ('$id', 1)");
        if ($sql->error) {
            die($sql->error);
        }
