@@ -1,7 +1,7 @@
 <?php
     include "header.php";
 
-$result=$sql->query("SELECT * FROM users ");
+$result=$sql->query("SELECT * FROM users");
 
 $row= $result->fetch_array(MYSQLI_NUM);
 
