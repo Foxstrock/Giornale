@@ -24,7 +24,7 @@
                     $_SESSION['user']['email'] = $user['email'];
                     $_SESSION['user']['id'] = $user['userID'];
 
-                    header("location: index.php");
+                    header("location: admin/manageUsers.php");
                 }else{
                     die("Password errata");
                 }
