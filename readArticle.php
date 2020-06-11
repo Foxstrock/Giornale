@@ -30,8 +30,8 @@
                 $categoryName = $sql->query("SELECT name FROM categories WHERE categoryID='$categoryID'")->fetch_array()['name'];
 
                 $data .= "<tr>
-                            <td><a href='readArticle.php?articleID=$articleID'>$articleID</a></td>
-                            <td>$title</td>
+                            <td>$articleID</td>
+                            <td><a href='readArticle.php?articleID=$articleID'>$title</a></td>
                             <td><img width='100' height='100' src='data: ".$tipoMimeFoto.";base64,".$attachment."'/></td>
                             <td>$categoryName</td>
                          </tr>";
