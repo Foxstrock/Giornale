@@ -21,7 +21,7 @@
             $dbInstalledVersion = $sql->query("SELECT * FROM system WHERE name = 'databaseVersion'");
             $dbInstalledVersion = $dbInstalledVersion->fetch_array()['value'];
             if ($dbInstalledVersion = $dbVersion) {
-                die("Already installed and up to date");
+                die("Database Version: $dbInstalledVersion<br>Already installed and up to date");
             }
             if($dbInstalledVersion == 1){
                 $sql->query("ALTER TABLE articles ADD COLUMN mimeType longtext");
