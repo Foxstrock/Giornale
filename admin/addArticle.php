@@ -3,7 +3,7 @@
 
     if($_SERVER['REQUEST_METHOD']=='GET'){
         ?>
-        <form action="#addArticle" method="post">
+        <form action="#addArticle" method="post" enctype="multipart/form-data">
             Titolo:
             <input type="text" name="title"><br>
             Sottotitolo:
