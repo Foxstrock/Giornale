@@ -8,7 +8,7 @@
         if($articles->num_rows==0){
             echo "Non ci sono articoli, mettiti a scrivere pezzo di merda sennò ti bocciano!";
         }else {
-            echo "<table><tr><td>ID</td><td>Title</td><td>Photo</td><tr><td>Category</td></tr>";
+            echo "<table><tr><td>ID</td><td>Title</td><td>Photo</td><td>Category</td></tr>";
             while ($article = $articles->fetch_assoc()) {
                 $articleID = $article['articleID'];
                 $title = $article['title'];
