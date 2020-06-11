@@ -31,8 +31,6 @@
                          </tr>";
                 print_r($article);
             }
-            echo $data;
-            echo "</table>";
 
             echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
 
@@ -40,3 +38,7 @@
     }else{
         $articleID = $_GET['articleID'];
     }
+
+
+echo $data;
+echo "</table>";
