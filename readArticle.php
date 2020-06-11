@@ -16,7 +16,6 @@
                             <td>Category</td>
                         </tr>";
             while ($article = $articles->fetch_assoc()) {
-                echo "ci sono articoli".PHP_EOL;
                 $articleID = $article['articleID'];
                 $title = $article['title'];
                 $attachment = $article['attachment'];
@@ -37,6 +36,4 @@
         $articleID = $_GET['articleID'];
     }
 
-echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
 echo $data;
-echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
