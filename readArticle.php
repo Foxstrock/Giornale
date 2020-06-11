@@ -35,7 +35,7 @@
                             <td>$title</td>
                             <td><img width='100' height='100' src='data: ".$tipoMimeFoto.";base64,".$attachment."'/></td>
                             <td>$categoryName</td>
-                            <td><a href='readArticle.php?articleID=$articleID' class='btn btn-primary stretched-link'>Articolo</a></td>
+                            <td><a href='readArticle.php?articleID=$articleID' class='badge badge-light'>Articolo</a></td>
                          </tr>";
             }
             $data .= "</table>";
