@@ -4,7 +4,7 @@
 * check installato in tabella sistema e versione -> inizio -> check ambiente -> creazione tabelle -> popolazione tabelle -> creazione primo utente -> configurazione base -> popolazione record installato e versione db
 */
     include "config.php";
-    $dbVersion = 1;
+    $dbVersion = 2;
 
     //Initialize querys variable
     $querys=[];
@@ -18,10 +18,14 @@
         //check if installed and db version
         $installed = $sql->query("SELECT * FROM system WHERE name = 'installed'");
         if ($installed->num_rows >= 1) {
-            $dbInstalledVersion = $sql->query("SELECT * FROM system WHERE name = 'dbVersion'");
+            $dbInstalledVersion = $sql->query("SELECT * FROM system WHERE name = 'databaseVersion'");
             $dbInstalledVersion = $dbInstalledVersion->fetch_array()['value'];
             if ($dbInstalledVersion = $dbVersion) {
                 die("Already installed and up to date");
+            }
+            if($dbInstalledVersion == 1){
+                $sql->query("ALTER TABLE articles ADD COLUMN mimeType longtext");
+                $sql->query("UPDATE system SET value=2 WHERE name='dbInstalledVersion'");
             }
         } else {
             //Install 1.0
@@ -138,8 +142,8 @@
                 die($sql->error);
             }
 
-            die("prova ");
 
             header("install.php?_Step=3");
         }
     }
+    header("location: install.php");
