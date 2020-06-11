@@ -23,4 +23,6 @@
         $tipoMimeFoto = mime_content_type($_FILES['foto']['tmp_name']);
         echo $foto.PHP_EOL;
         print_r($_POST);
+        echo PHP_EOL;
+        print_r($_FILES);
     }
