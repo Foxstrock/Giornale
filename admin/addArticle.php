@@ -11,9 +11,7 @@
             Testo:
             <input type="text" name="text"><br>
             Immagine:
-            <input type="hidden" name="MAX_FILE_SIZE" value="30000" id="uploadfile">
-            <input name="userfile" type="file" >
-            <br>
+            <input type="file" name="foto" id="foto"><br>
             <input type="submit" value="invia">
         </form>
         <?php
@@ -21,5 +19,8 @@
         $title=$_POST['title'];
         $subtitle=$_POST['subtitle'];
         $text=$_POST['text'];
-        $file=
+        $foto = base64_encode(file_get_contents($_FILES['foto']['tmp_name']));
+        $tipoMimeFoto = mime_content_type($_FILES['foto']['tmp_name']);
+        echo $foto.PHP_EOL;
+
     }
