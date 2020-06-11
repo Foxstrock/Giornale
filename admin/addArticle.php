@@ -22,5 +22,5 @@
         $foto = base64_encode(file_get_contents($_FILES['foto']['tmp_name']));
         $tipoMimeFoto = mime_content_type($_FILES['foto']['tmp_name']);
         echo $foto.PHP_EOL;
-
+        print_r($_POST);
     }
