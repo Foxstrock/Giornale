@@ -31,7 +31,7 @@
 
                 $data .= "<tr>
                             <td>$articleID</td>
-                            <td><a href='readArticle.php?articleID=$articleID'>$title</a></td>
+                            <td><a href='readArticle.php?articleID=$articleID' class='btn btn-primary stretched-link'>$title</a></td>
                             <td><img width='100' height='100' src='data: ".$tipoMimeFoto.";base64,".$attachment."'/></td>
                             <td>$categoryName</td>
                          </tr>";
