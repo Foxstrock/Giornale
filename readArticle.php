@@ -32,10 +32,9 @@
 
                 $data .= "<tr>
                             <td>$articleID</td>
-                            <td>$title</td>
+                            <td><a href='readArticle.php?articleID=$articleID' class='badge badge-light'>$title</a></td>
                             <td><img width='100' height='100' src='data: ".$tipoMimeFoto.";base64,".$attachment."'/></td>
-                            <td>$categoryName</td>
-                            <td><a href='readArticle.php?articleID=$articleID' class='badge badge-light'>Articolo</a></td>
+                            <td>$categoryName</td
                          </tr>";
             }
             $data .= "</table>";
