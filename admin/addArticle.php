@@ -35,6 +35,6 @@
         if($sql->error){
             die($sql->error);
         }else{
-            header("location: readArticle.php");
+            header("location: ../readArticle.php");
         }
     }
