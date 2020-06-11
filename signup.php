@@ -35,6 +35,12 @@
         $passwordConf = $_POST['passwordConf'];
         $createdAt = date('Y-m-d H:i:s');
 
+            if ($sql->query("SELECT email FROM users")->fetch_array()['email'] == $email) {
+                echo "L'utente è gia registrato";
+                die();
+            }
+
+
         if ($password !== $passwordConf) {
             echo "Le password non corrispondono";
             die();
