@@ -29,13 +29,13 @@
                             <td><img width='100' height='100' src='data: ".$tipoMimeFoto.";base64,".$attachment."'/></td>
                             <td>$categoryName</td>
                          </tr>";
-                $tmp[] = $article;
+                print_r($article);
             }
             echo $data;
             echo "</table>";
 
             echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-            print_r($tmp);
+
         }
     }else{
         $articleID = $_GET['articleID'];
