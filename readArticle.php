@@ -14,7 +14,7 @@
         if($articles->num_rows==0){
             $data = "Non ci sono articoli, mettiti a scrivere pezzo di merda sennò ti bocciano!";
         }else {
-            $data = "<table class='table'>
+            $data = "<table class='table table-striped table-dark'>
                         <tr>
                             <td>ID</td>
                             <td>Title</td>
