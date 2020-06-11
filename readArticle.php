@@ -4,7 +4,7 @@
         header("location: index.php");
     }
     if(!isset($_GET['articleID'])){
-        $articles = $sql->query("SELECT * FROM article");
+        $articles = $sql->query("SELECT * FROM articles");
         if($articles->num_rows==0){
             echo "Non ci sono articoli, mettiti a scrivere pezzo di merda sennò ti bocciano!";
         }else {
