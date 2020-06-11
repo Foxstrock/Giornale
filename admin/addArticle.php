@@ -14,6 +14,8 @@
             <input type="text" name="text"><br>
             Immagine:
             <input type="file" name="foto" id="foto"><br>
+            Categoria:
+            <input type="number" name="category" id="category">
             <input type="submit" value="invia">
         </form>
         <?php
@@ -28,8 +30,6 @@
         $category = $_POST['category'];
         $foto = base64_encode(file_get_contents($_FILES['foto']['tmp_name']));
         $tipoMimeFoto = mime_content_type($_FILES['foto']['tmp_name']);
-        echo $foto.PHP_EOL;
-        print_r($_POST);
-        echo PHP_EOL;
-        print_r($_FILES);
+
+
     }
