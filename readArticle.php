@@ -32,8 +32,11 @@
             }
             $data .= "</table>";
         }
+        echo $data;
     }else{
         $articleID = $_GET['articleID'];
+        $article = $sql->query("SELECT * FROM articles WHERE articleID='$articleID'")->fetch_array();
+        print_r($article);
     }
 
-echo $data;
+
