@@ -8,7 +8,7 @@
         if($articles->num_rows==0){
             echo "Non ci sono articoli, mettiti a scrivere pezzo di merda sennò ti bocciano!";
         }else {
-            echo "<table>
+            $data = "<table>
                         <tr>
                             <td>ID</td>
                             <td>Title</td>
@@ -39,7 +39,8 @@
         $articleID = $_GET['articleID'];
     }
 
-
-echo $data;
 echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+echo $data;
+
 echo "</table>";
+echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
