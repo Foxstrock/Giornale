@@ -18,12 +18,22 @@
             //modifica
         }elseif ($_GET['action'] == "delete"){
             $userID = $_GET['userID'];
-            $sql->query("DELETE FROM users WHERE userID = '$userID'");
-            if($sql->error){
-                die($sql->error);
-            }else{
-                header("location: manageUsers.php");
+            $querys[] = "DELETE FROM userStatus WHERE userID = '$userID'";
+            $querys[] = "DELETE FROM userLevels WHERE userID = '$userID'";
+            $querys[] = "DELETE FROM subscriptions WHERE userID = '$userID'";
+            $querys[] = "DELETE FROM creditCards WHERE userID = '$userID'";
+            $querys[] = "UPDATE articles SET creatorID = 1 WHERE creatorID = '$userID'";
+            $querys[] = "UPDATE articles SET lastEditorID = 1 WHERE lastEditorID = '$userID'";
+            $querys[] = "DELETE FROM users WHERE userID = '$userID'";
+            foreach ($querys as $query){
+                $sql->query($query);
+                if($sql->error){
+                    die($sql->error);
+                }else{
+                    header("location: manageUsers.php");
+                }
             }
+
         }
     }elseif ($_SERVER['REQUEST_METHOD'] == "POST"){
         //modifica

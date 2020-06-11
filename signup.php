@@ -11,7 +11,7 @@
             Cognome:<br>
             <input type="text" id="surname" name="surname"><br>
             E-Mail:<br>
-            <input type="text" id="email" name="email"><br>
+            <input type="email" id="email" name="email"><br>
             Indirizzo:<br>
             <input type="text" id="address" name="address"><br>
             Data di Nascita:<br>
