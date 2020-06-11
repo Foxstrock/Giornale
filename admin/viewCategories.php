@@ -1,4 +1,5 @@
 <?php
+    include "header.php";
     $categories = $sql->query("SELECT * FROM categories");
     if($categories->num_rows==0){
         $data = "Non ci sono categorie";
