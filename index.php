@@ -2,7 +2,7 @@
     include "header.php";
 ?>
 
-<body>
+<body bgcolor="black">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg">
