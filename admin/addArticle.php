@@ -19,6 +19,7 @@
         $title=$_POST['title'];
         $subtitle=$_POST['subtitle'];
         $text=$_POST['text'];
+
         $foto = base64_encode(file_get_contents($_FILES['foto']['tmp_name']));
         $tipoMimeFoto = mime_content_type($_FILES['foto']['tmp_name']);
         echo $foto.PHP_EOL;
