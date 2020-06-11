@@ -20,6 +20,7 @@
                             <td>Title</td>
                             <td>Photo</td>
                             <td>Category</td>
+                            <td>Link</td>
                         </tr>";
             while ($article = $articles->fetch_assoc()) {
                 $articleID = $article['articleID'];
@@ -31,9 +32,10 @@
 
                 $data .= "<tr>
                             <td>$articleID</td>
-                            <td><a href='readArticle.php?articleID=$articleID' class='btn btn-primary stretched-link'>$title</a></td>
+                            <td>$title</td>
                             <td><img width='100' height='100' src='data: ".$tipoMimeFoto.";base64,".$attachment."'/></td>
                             <td>$categoryName</td>
+                            <td><a href='readArticle.php?articleID=$articleID' class='btn btn-primary stretched-link'>Articolo</a></td>
                          </tr>";
             }
             $data .= "</table>";
