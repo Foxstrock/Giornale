@@ -6,7 +6,7 @@
     if(!isset($_GET['articleID'])){
         $articles = $sql->query("SELECT * FROM articles");
         if($articles->num_rows==0){
-            echo "Non ci sono articoli, mettiti a scrivere pezzo di merda sennò ti bocciano!";
+            $data = "Non ci sono articoli, mettiti a scrivere pezzo di merda sennò ti bocciano!";
         }else {
             $data = "<table>
                         <tr>
@@ -16,6 +16,7 @@
                             <td>Category</td>
                         </tr>";
             while ($article = $articles->fetch_assoc()) {
+                echo "ci sono articoli".PHP_EOL;
                 $articleID = $article['articleID'];
                 $title = $article['title'];
                 $attachment = $article['attachment'];
@@ -31,9 +32,7 @@
                          </tr>";
                 print_r($article);
             }
-
-
-
+            $data .= "</table>";
         }
     }else{
         $articleID = $_GET['articleID'];
@@ -41,6 +40,4 @@
 
 echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
 echo $data;
-
-echo "</table>";
 echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
