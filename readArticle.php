@@ -22,7 +22,7 @@
                 $attachment = $article['attachment'];
                 $categoryID = $article['categoryID'];
                 $tipoMimeFoto = $article['mimeType'];
-                $categoryName = $sql->query("SELECT name FROM categories WHERE categoryID='$categoryID'");
+                $categoryName = $sql->query("SELECT name FROM categories WHERE categoryID='$categoryID'")->fetch_array()['name'];
 
                 $data .= "<tr>
                             <td><a href='readArticle.php?articleID=$articleID'>$articleID</a></td>
@@ -30,7 +30,6 @@
                             <td><img width='100' height='100' src='data: ".$tipoMimeFoto.";base64,".$attachment."'/></td>
                             <td>$categoryName</td>
                          </tr>";
-                print_r($article);
             }
             $data .= "</table>";
         }
