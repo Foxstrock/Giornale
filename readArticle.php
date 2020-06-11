@@ -14,7 +14,7 @@
         if($articles->num_rows==0){
             $data = "Non ci sono articoli, mettiti a scrivere pezzo di merda sennò ti bocciano!";
         }else {
-            $data = "<table class='table table-striped table-dark'>
+            $data = "<table class='table table-striped table-dark' align='center'>
                         <tr>
                             <td>ID</td>
                             <td>Title</td>
@@ -31,7 +31,7 @@
 
                 $data .= "<tr>
                             <td>$articleID</td>
-                            <td><a href='readArticle.php?articleID=$articleID' class='btn btn-primary stretched-link'>$title</a></td>
+                            <td><a href='readArticle.php?articleID=$articleID' class=''>$title</a></td>
                             <td><img width='100' height='100' src='data: ".$tipoMimeFoto.";base64,".$attachment."'/></td>
                             <td>$categoryName</td>
                          </tr>";
