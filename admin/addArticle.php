@@ -31,5 +31,10 @@
         $foto = base64_encode(file_get_contents($_FILES['foto']['tmp_name']));
         $tipoMimeFoto = mime_content_type($_FILES['foto']['tmp_name']);
 
-
+        $sql->query("INSERT INTO articles (title,subtitle,text,attachment,createdAt,creatorID,lastEditorID,lastEdited,categoryID,mimeType) VALUES ('$title','$subtitle','$text','$foto','$createdAt','$createdBy','$lastEditedBy','$lastEdited','$category', '$tipoMimeFoto')");
+        if($sql->error){
+            die($sql->error);
+        }else{
+            header("location: readArticle.php");
+        }
     }
