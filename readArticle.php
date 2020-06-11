@@ -1,3 +1,9 @@
+<head>
+    <title>
+        Read Article
+    </title>
+</head>
+
 <?php
     include "header.php";
     if(!isset($_SESSION['user']['id'])){
@@ -8,7 +14,7 @@
         if($articles->num_rows==0){
             $data = "Non ci sono articoli, mettiti a scrivere pezzo di merda sennò ti bocciano!";
         }else {
-            $data = "<table>
+            $data = "<table class='table'>
                         <tr>
                             <td>ID</td>
                             <td>Title</td>
