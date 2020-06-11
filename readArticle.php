@@ -20,7 +20,6 @@
                             <td>Title</td>
                             <td>Photo</td>
                             <td>Category</td>
-                            <td>Link</td>
                         </tr>";
             while ($article = $articles->fetch_assoc()) {
                 $articleID = $article['articleID'];
@@ -34,7 +33,7 @@
                             <td>$articleID</td>
                             <td><a href='readArticle.php?articleID=$articleID' class='badge badge-light'>$title</a></td>
                             <td><img width='100' height='100' src='data: ".$tipoMimeFoto.";base64,".$attachment."'/></td>
-                            <td>$categoryName</td
+                            <td>$categoryName</td>
                          </tr>";
             }
             $data .= "</table>";
@@ -45,5 +44,4 @@
         $article = $sql->query("SELECT * FROM articles WHERE articleID='$articleID'")->fetch_array();
         print_r($article);
     }
-
 
