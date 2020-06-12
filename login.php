@@ -2,7 +2,7 @@
     include "header.php";
     if($_SERVER["REQUEST_METHOD"]=="GET"){
         ?>
-        <div style="text-align: center;" class="shadow p-3 mb-5 bg-white rounded">
+        <div style="text-align: center;" class="shadow p-3 mb-5 bg-white rounded" with="20%">
             <h1>Reserved Area</h1>
             <form method="post" action="#login">
                 E-Mail address<br>
