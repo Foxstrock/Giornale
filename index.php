@@ -9,7 +9,9 @@
                 <h2>Barcellona P.G. News</h2>
             </div>
             <div class="mr-0">
-                <a href="login.php">Login</a>
+                <?php
+                echo " <a href=\"login.php\">Login</a>";
+                ?>
                 |
                 <a href="signup.php">Sign Up</a>
             </div>
