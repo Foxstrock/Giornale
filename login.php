@@ -5,9 +5,9 @@
         <div style="text-align: center;" class="shadow p-3 mb-5 bg-white rounded">
             <h1>Reserved Area</h1>
             <form method="post" action="#login">
-                E-Mail:<br>
+                E-Mail address<br>
                 <input type="text" id="email" name="email"><br>
-                Password:<br>
+                Password<br>
                 <input type="password" id="password" name="password"><br>
                 <input type="submit" id="login" name="login" value="Accedi!">
             </form>
