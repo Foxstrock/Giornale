@@ -54,6 +54,7 @@
                     <option name="levelID3">Redattore</option>
                     <option name="levelID4">Direttore</option>
                 </select>
+                <input type="submit" name="submit" value="Modifica!">
             </form>
             <?php
         }elseif ($_GET['action'] == "delete"){
@@ -77,4 +78,5 @@
         }
     }elseif ($_SERVER['REQUEST_METHOD'] == "POST"){
         //modifica
+        print_r($_POST);
     }
