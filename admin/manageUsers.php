@@ -96,6 +96,8 @@
         //Cambio stato
         if($newStatusID != $currentStatusID = $sql->query("SELECT statusID from userStatus where userID = '$userID'")->fetch_array()['statusID']){
             $sql->query("UPDATE userStatus SET statusID = '$newStatusID' WHERE userID = '$userID'");
+            echo $currentStatusID;
+
             if ($sql->error){
                 die($sql->error);
             }
