@@ -94,12 +94,11 @@
         echo $newStatusID;
 
         //Cambio stato
-        if($newStatusID != $currentStatusID = $sql->query("SELECT * from userStatus where userID = '$userID'")->fetch_array()['statusID']){
             $sql->query("UPDATE userStatus SET statusID = '$newStatusID' WHERE userID = '$userID'");
             if ($sql->error){
                 die($sql->error);
             }
-        }
+
 
         //Cambio Livello
 
@@ -121,12 +120,11 @@
         echo $newStatusID;
 
         //Cambio livello
-        if($newLevelID != $currentLevelID = $sql->query("SELECT * from userLevels where userID = '$userID'")->fetch_array()['levelID']){
             $sql->query("UPDATE userLevels SET levelID = '$newLevelID' WHERE userID = '$userID'");
             if ($sql->error){
                 die($sql->error);
             }
-        }
-        //header("location: manageUsers.php");
+
+        header("location: manageUsers.php");
 
     }
