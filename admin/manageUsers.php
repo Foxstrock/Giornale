@@ -37,6 +37,7 @@
             $currentLevel = "<option name=\"levelID$currentLevelID\">$currentLevelName</option>";
             ?>
             <form method="post" action="#">
+                <input type="hidden" name="userID" value="<?php echo $userID; ?>">
                 <input type="text" name="name" id="name" readonly value="<?php echo $user['name']; ?>">
                 <input type="email" name="email" id="email" readonly value="<?php echo $user['email']; ?>">
                 <select name="status" id="staus">
@@ -77,8 +78,8 @@
 
         }
     }elseif ($_SERVER['REQUEST_METHOD'] == "POST"){
+        $userID = $_POST['userID'];
         //modifica
-        print_r($_POST);
         $newStatusName=$_POST['status'];
 
         if($newStatusName == "Attesa"){
