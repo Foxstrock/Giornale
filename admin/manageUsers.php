@@ -79,11 +79,21 @@
     }elseif ($_SERVER['REQUEST_METHOD'] == "POST"){
         //modifica
         print_r($_POST);
-        $newStatusID=$_POST['status'];
-        echo $newStatusID;
-        /*Cambio stato
-        if($controlStatusID = $sql->query("SELECT * FROM userStatus")->fetch_array()['statusID'] != $currentStatusID = $sql->query("SELECT statusID from userStatus where userID = '$userID'")->fetch_array()['statusID']){
-            $sql->query("UPDATE userStatus SET statusID = ");
+        $newStatusName=$_POST['status'];
+
+        if($newStatusName == "Attesa"){
+            $newStatusID = 1;
         }
-        */
+        if($newStatusName == "Attivo"){
+            $newStatusID = 2;
+        }
+        if($newStatusName == "Sospeso"){
+            $newStatusID = 3;
+        }
+
+        //Cambio stato
+        if($newStatusID != $currentStatusID = $sql->query("SELECT statusID from userStatus where userID = '$userID'")->fetch_array()['statusID']){
+            $sql->query("UPDATE userStatus SET statusID = '$newStatusID' WHERE userID = '$userID'");
+        }
+
     }
