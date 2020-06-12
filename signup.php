@@ -62,6 +62,10 @@
        if ($sql->error) {
            die($sql->error);
        }
-       header("location: login.php");
+
+       $message="Clicca <a href='marcos.danrizzo.dev/confermaregistrazione?'email='$email''>qui</a> oppure copia il seguente link https://marcos.danrizzo.dev/confermaregistrazione?email=$email ";
+       mail($email,"Conferma Registrazione",$message);
+
+        header("location: login.php");
     }
 ?>
