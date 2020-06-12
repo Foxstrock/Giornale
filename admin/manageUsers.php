@@ -13,7 +13,7 @@
                 $userID = $user['userID'];
                 $statusID = $sql->query("SELECT * FROM userStatus WHERE userID = '$userID'")->fetch_array()['statusID'];
                 $statusName = $sql->query("SELECT * FROM status WHERE statusID = '$statusID'")->fetch_array()['name'];
-                $data .= "<tr><td>".$user['userID']."</td><td>".$user['name']."</td><td>".$user['surname']."</td><td>".$user['email']."</td><td>".$user['address']."</td><td>".$user['bithdate']."</td><td>".$user['createdAt']."</td><td>".$statusName."</td><td><a href='manageUsers.php?action=edit&userID=".$user['userID']."'>Edit</a></td><td><a href='manageUsers.php?action=delete&userID=".$user['userID']."'>Delete</a></td></tr>";
+                $data .= "<tr><td>".$user['userID']."</td><td>".$user['name']."</td><td>".$user['surname']."</td><td>".$user['email']."</td><td>".$user['address']."</td><td>".$user['birthdate']."</td><td>".$user['createdAt']."</td><td>".$statusName."</td><td><a href='manageUsers.php?action=edit&userID=".$user['userID']."'>Edit</a></td><td><a href='manageUsers.php?action=delete&userID=".$user['userID']."'>Delete</a></td></tr>";
             }
             echo $data;
             echo "</table>";
