@@ -2,7 +2,7 @@
     include "header.php";
     if($_SERVER["REQUEST_METHOD"]=="GET"){
         ?>
-        <div class="login">
+        <div style="text-align: center;">
         <form method="post" action="#login">
             E-Mail:<br>
             <input type="text" id="email" name="email"><br>
