@@ -2,6 +2,7 @@
     include "header.php";
     if($_SERVER["REQUEST_METHOD"]=="GET"){
         ?>
+        <div class="login">
         <form method="post" action="#login">
             E-Mail:<br>
             <input type="text" id="email" name="email"><br>
@@ -9,6 +10,7 @@
             <input type="password" id="password" name="password"><br>
             <input type="submit" id="login" name="login" value="Accedi!">
         </form>
+        </div>
         <?php
     }elseif ($_SERVER['REQUEST_METHOD']=="POST"){
         if (isset($_POST['login'])){
