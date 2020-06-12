@@ -75,6 +75,11 @@
             $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Redattore', 1, 1, 0)";
             $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Direttore', 1, 1, 1)";
 
+            //Create user status
+            $querys[] = "INSERT INTO status (name, active) VALUES ('Attesa', 1)";
+            $querys[] = "INSERT INTO status (name, active) VALUES ('Attivo', 2)";
+            $querys[] = "INSERT INTO status (name, active) VALUES ('Sospeso', 3)";
+
             foreach ($querys as $query) {
                 $sql->query($query);
                 if ($sql->error) {
@@ -142,8 +147,11 @@
                 die($sql->error);
             }
 
+            $sql->query("INSERT INTO userStatus (userID, statusID) VALUES (1 , 2)");
+            if($sql->error){
+                die($sql->error);
+            }
 
             header("install.php?_Step=3");
         }
     }
-    header("location: install.php");
