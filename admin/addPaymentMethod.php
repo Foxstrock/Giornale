@@ -6,7 +6,7 @@ if($_SESSION['user']['levelID']!=4){
 if($_SERVER["REQUEST_METHOD"] == "GET"){
     ?>
 
-    <form>
+    <form method="post" action="#">
         <input type="text" name="PaymentsMethod">
         <input type="submit" value="Invia">
     </form>
