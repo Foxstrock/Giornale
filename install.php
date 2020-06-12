@@ -59,6 +59,10 @@
             //Credit Cards table
             $querys[] = "CREATE TABLE creditCards (cardID int NOT NULL PRIMARY KEY AUTO_INCREMENT, cardNumber varchar(19) NOT NULL, cardExpiration date NOT NULL, cardCVV int NOT NULL, cardHolderName varchar(200) NOT NULL, cardHolderSurname varchar(200) NOT NULL, cardHolderAddress varchar(200) NOT NULL, userID int NOT NULL)";
 
+            $querys[] = "CREATE TABLE paymentMethods (paymentMethodsId int NOT NULL PRIMARY KEY AUTO_INCREMENT,name varchar(250) NOT NULL)";
+
+            $querys[] = "CREATE TABLE subscriptions (userID int NOT NULL, subscriptionDate datetime NOT NULL, exirationDate datetime NOT NULL, paymentMethodID int NOT NULL)";
+
             //Alter tables to add auto forgein keys
             $querys[] = "ALTER TABLE userStatus ADD FOREIGN KEY (statusID) REFERENCES status(statusID)";
             $querys[] = "ALTER TABLE userStatus ADD FOREIGN KEY (userID) REFERENCES users(userID)";
@@ -68,6 +72,8 @@
             $querys[] = "ALTER TABLE articles ADD FOREIGN KEY (creatorID) REFERENCES users(userID)";
             $querys[] = "ALTER TABLE articles ADD FOREIGN KEY (lastEditorID) REFERENCES users(userID)";
             $querys[] = "ALTER TABLE creditCards ADD FOREIGN KEY (userID) REFERENCES users(userID)";
+            $querys[] = "ALTER TABLE subscriptions ADD FOREIGN KEY (userID) REFERENCES users(userID)";
+            $querys[] = "ALTER TABLE subscriptions ADD FOREIGN KEY (paymentMethods) REFERENCES paymentMethods(paymentMethodID)";
 
             //Create user levels
             $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Utente', 0, 0, 0)";
@@ -76,9 +82,9 @@
             $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Direttore', 1, 1, 1)";
 
             //Create user status
-            $querys[] = "INSERT INTO status (name, active) VALUES ('Attesa', 1)";
-            $querys[] = "INSERT INTO status (name, active) VALUES ('Attivo', 2)";
-            $querys[] = "INSERT INTO status (name, active) VALUES ('Sospeso', 3)";
+            $querys[] = "INSERT INTO status (name, active) VALUES ('Attesa', 0)";
+            $querys[] = "INSERT INTO status (name, active) VALUES ('Attivo', 1)";
+            $querys[] = "INSERT INTO status (name, active) VALUES ('Sospeso', 0)";
 
             foreach ($querys as $query) {
                 $sql->query($query);
