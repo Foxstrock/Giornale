@@ -3,6 +3,9 @@
     if(!isset($_SESSION['user']['id'])){
         header("location: ../login.php");
     }
+    if($_SESSION['user']['levelID']<3){
+        header("location: ../index.php");
+    }
     if($_SERVER['REQUEST_METHOD']=='GET'){
         ?>
         <form action="#addArticle" method="post" enctype="multipart/form-data">
