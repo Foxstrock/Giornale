@@ -79,4 +79,11 @@
     }elseif ($_SERVER['REQUEST_METHOD'] == "POST"){
         //modifica
         print_r($_POST);
+        $newStatusID=$_POST['status'];
+        echo $newStatusID;
+        /*Cambio stato
+        if($controlStatusID = $sql->query("SELECT * FROM userStatus")->fetch_array()['statusID'] != $currentStatusID = $sql->query("SELECT statusID from userStatus where userID = '$userID'")->fetch_array()['statusID']){
+            $sql->query("UPDATE userStatus SET statusID = ");
+        }
+        */
     }
