@@ -127,6 +127,6 @@
                 die($sql->error);
             }
         }
-        header("location: admin/manageUsers.php");
+        header("location: manageUsers.php");
 
     }
