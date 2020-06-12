@@ -22,6 +22,3 @@
         </div>
     </div>
 </body>
-
-<?php
-    header("location: index.php");
