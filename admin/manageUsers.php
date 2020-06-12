@@ -100,6 +100,8 @@
                 die($sql->error);
             }
         }
+
+        echo $currentStatusID;
         //Cambio Livello
 
     }
