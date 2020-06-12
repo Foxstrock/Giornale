@@ -9,9 +9,11 @@
             //mostra utenti
             echo "<table><tr><td>UserID</td><td>Name</td><td>Surname</td><td>Email</td><td>Address</td><td>Birthdate</td><td>Created At</td><td>Status</td><td>Edit</td><td>Delete</td></tr>";
             $users = $sql->query("SELECT * FROM users");
-            $status = $sql->query("SELECT * FROM status");
             while ($user = $users->fetch_assoc()){
-                $data .= "<tr><td>".$user['userID']."</td><td>".$user['name']."</td><td>".$user['surname']."</td><td>".$user['email']."</td><td>".$user['address']."</td><td>".$user['bithdate']."</td><td>".$user['createdAt']."</td><td>".$status['name']."</td><td><a href='manageUsers.php?action=edit&userID=".$user['userID']."'>Edit</a></td><td><a href='manageUsers.php?action=delete&userID=".$user['userID']."'>Delete</a></td></tr>";
+                $userID = $user['userID'];
+                $statusID = $sql->query("SELECT * FROM userStatus WHERE userID = '$userID'")->fetch_array()['statusID'];
+                $statusName = $sql->query("SELECT * FROM status WHERE statusID = '$statusID'")->fetch_array()['name'];
+                $data .= "<tr><td>".$user['userID']."</td><td>".$user['name']."</td><td>".$user['surname']."</td><td>".$user['email']."</td><td>".$user['address']."</td><td>".$user['bithdate']."</td><td>".$user['createdAt']."</td><td>".$statusName."</td><td><a href='manageUsers.php?action=edit&userID=".$user['userID']."'>Edit</a></td><td><a href='manageUsers.php?action=delete&userID=".$user['userID']."'>Delete</a></td></tr>";
             }
             echo $data;
             echo "</table>";
