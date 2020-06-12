@@ -4,7 +4,7 @@
 * check installato in tabella sistema e versione -> inizio -> check ambiente -> creazione tabelle -> popolazione tabelle -> creazione primo utente -> configurazione base -> popolazione record installato e versione db
 */
     include "config.php";
-    $dbVersion = 2;
+    $dbVersion = 3;
 
     //Initialize querys variable
     $querys=[];
