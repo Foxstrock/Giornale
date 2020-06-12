@@ -94,16 +94,38 @@
         echo $newStatusID;
 
         //Cambio stato
-        if($newStatusID != $currentStatusID = $sql->query("SELECT statusID from userStatus where userID = '$userID'")->fetch_array()['statusID']){
+        if($newStatusID != $currentStatusID = $sql->query("SELECT * from userStatus where userID = '$userID'")->fetch_array()['statusID']){
             $sql->query("UPDATE userStatus SET statusID = '$newStatusID' WHERE userID = '$userID'");
-            echo $currentStatusID2 = $sql->query("SELECT statusID from userStatus where userID = '$userID'")->fetch_array()['statusID'] ;
-
             if ($sql->error){
                 die($sql->error);
             }
         }
 
-        echo $currentStatusID;
         //Cambio Livello
+
+        $newLevelName=$_POST['level'];
+
+        if($newLevelName == "Non abbonato"){
+            $newLevelID = 1;
+        }
+        if($newLevelName == "Abbonato"){
+            $newLevelID = 2;
+        }
+        if($newLevelName == "Redattore"){
+            $newLevelID = 3;
+        }
+        if($newLevelName == "Direttore"){
+            $newLevelID = 4;
+        }
+
+        echo $newStatusID;
+
+        //Cambio livello
+        if($newLevelID != $currentLevelID = $sql->query("SELECT * from userLevels where userID = '$userID'")->fetch_array()['levelID']){
+            $sql->query("UPDATE userLevels SET levelID = '$newLevelID' WHERE userID = '$userID'");
+            if ($sql->error){
+                die($sql->error);
+            }
+        }
 
     }
