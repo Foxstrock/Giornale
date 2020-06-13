@@ -81,7 +81,7 @@
             $querys[] = "ALTER TABLE articles ADD FOREIGN KEY (lastEditorID) REFERENCES users(userID)";
             $querys[] = "ALTER TABLE creditCards ADD FOREIGN KEY (userID) REFERENCES users(userID)";
             $querys[] = "ALTER TABLE subscriptions ADD FOREIGN KEY (userID) REFERENCES users(userID)";
-            $querys[] = "ALTER TABLE subscriptions ADD FOREIGN KEY (paymentMethods) REFERENCES paymentMethods(paymentMethodID)";
+            $querys[] = "ALTER TABLE subscriptions ADD FOREIGN KEY (paymentMethodID) REFERENCES paymentMethods(paymentMethodID)";
 
             foreach ($querys as $query) {
                 $sql->query($query);
