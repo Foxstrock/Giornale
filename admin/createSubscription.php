@@ -43,5 +43,5 @@
 
         echo "UserID: $userID - subscriptionDate: $currentDate - expiry date: $expiryDate - paymentMethodID: $paymentMethodID";
 
-        //header("location: manageSubscriptions.php");
+        //header("location: manageUsers.php");
     }

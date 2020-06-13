@@ -5,6 +5,9 @@
 </head>
 
 <?php
+if($_SESSION['user']['levelID']>=2){
+    header("location: ../index.php");
+}
     include "header.php";
     if(!isset($_SESSION['user']['id'])){
         header("location: index.php");
