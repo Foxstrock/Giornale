@@ -36,11 +36,11 @@
         $paymentMethod = $_POST['paymentMethod'];
         $expiryDate = $expiryDate.' 23:59:59';
         $paymentMethodID = $sql->query("SELECT * FROM paymentMethods WHERE name='$paymentMethod'")->fetch_array()['paymentMethodID'];
-        $userEmail = explode('-', $user)[0];
+        $userEmail = explode('-', $user)[1];
         $userEmail = trim($userEmail);
-        echo $userEmail;
+
         $userID = $sql->query("SELECT * users WHERE email = '$userEmail'")->fetch_array()['userID'];
         $sql->query("INSERT INTO subscriptions (userID,subscriptionDate,exiprationDate,paymentMethodID) VALUES ('$userID','$currentDate','$expiryDate','$paymentMethodID')");
-        die($sql->error);
+
         header("location: manageSubscriptions.php");
     }
