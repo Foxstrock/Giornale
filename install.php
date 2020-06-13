@@ -61,7 +61,7 @@
 
             $querys[] = "CREATE TABLE paymentMethods (paymentMethodID int NOT NULL PRIMARY KEY AUTO_INCREMENT,name varchar(250) NOT NULL)";
 
-            $querys[] = "CREATE TABLE subscriptions (subscriptionID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, userID int NOT NULL , subscriptionDate datetime NOT NULL, exirationDate datetime NOT NULL, paymentMethodID int NOT NULL)";
+            $querys[] = "CREATE TABLE subscriptions (subscriptionID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, userID int NOT NULL , subscriptionDate datetime NOT NULL, expirationDate datetime NOT NULL, paymentMethodID int NOT NULL)";
 
             foreach ($querys as $query) {
                 $sql->query($query);
