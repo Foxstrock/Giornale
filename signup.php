@@ -11,7 +11,7 @@
             Cognome:<br>
             <input type="text" id="surname" name="surname"><br>
             E-Mail:<br>
-            <input type="text" id="email" name="email"><br>
+            <input type="email" id="email" name="email"><br>
             Indirizzo:<br>
             <input type="text" id="address" name="address"><br>
             Data di Nascita:<br>
@@ -35,6 +35,12 @@
         $passwordConf = $_POST['passwordConf'];
         $createdAt = date('Y-m-d H:i:s');
 
+            if ($sql->query("SELECT email FROM users")->fetch_array()['email'] == $email) {
+                echo "L'utente è gia registrato";
+                die();
+            }
+
+
         if ($password !== $passwordConf) {
             echo "Le password non corrispondono";
             die();
@@ -56,6 +62,10 @@
        if ($sql->error) {
            die($sql->error);
        }
-       header("location: login.php");
+
+       $message="Clicca <a href='marcos.danrizzo.dev/confermaregistrazione?'email='$email''>qui</a> oppure copia il seguente link https://marcos.danrizzo.dev/confermaregistrazione?email=$email ";
+       mail($email,"Conferma Registrazione",$message);
+
+        header("location: login.php");
     }
 ?>

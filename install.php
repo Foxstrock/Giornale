@@ -4,7 +4,7 @@
 * check installato in tabella sistema e versione -> inizio -> check ambiente -> creazione tabelle -> popolazione tabelle -> creazione primo utente -> configurazione base -> popolazione record installato e versione db
 */
     include "config.php";
-    $dbVersion = 1;
+    $dbVersion = 3;
 
     //Initialize querys variable
     $querys=[];
@@ -18,10 +18,14 @@
         //check if installed and db version
         $installed = $sql->query("SELECT * FROM system WHERE name = 'installed'");
         if ($installed->num_rows >= 1) {
-            $dbInstalledVersion = $sql->query("SELECT * FROM system WHERE name = 'dbVersion'");
+            $dbInstalledVersion = $sql->query("SELECT * FROM system WHERE name = 'databaseVersion'");
             $dbInstalledVersion = $dbInstalledVersion->fetch_array()['value'];
             if ($dbInstalledVersion = $dbVersion) {
-                die("Already installed and up to date");
+                die("Database Version: $dbInstalledVersion<br>Already installed and up to date");
+            }
+            if($dbInstalledVersion == 1){
+                $sql->query("ALTER TABLE articles ADD COLUMN mimeType longtext");
+                $sql->query("UPDATE system SET value=2 WHERE name='dbInstalledVersion'");
             }
         } else {
             //Install 1.0
@@ -55,6 +59,18 @@
             //Credit Cards table
             $querys[] = "CREATE TABLE creditCards (cardID int NOT NULL PRIMARY KEY AUTO_INCREMENT, cardNumber varchar(19) NOT NULL, cardExpiration date NOT NULL, cardCVV int NOT NULL, cardHolderName varchar(200) NOT NULL, cardHolderSurname varchar(200) NOT NULL, cardHolderAddress varchar(200) NOT NULL, userID int NOT NULL)";
 
+            $querys[] = "CREATE TABLE paymentMethods (paymentMethodID int NOT NULL PRIMARY KEY AUTO_INCREMENT,name varchar(250) NOT NULL)";
+
+            $querys[] = "CREATE TABLE subscriptions (subscriptionID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, userID int NOT NULL , subscriptionDate datetime NOT NULL, expirationDate datetime NOT NULL, paymentMethodID int NOT NULL)";
+
+            foreach ($querys as $query) {
+                $sql->query($query);
+                if ($sql->error) {
+                    die($sql->error);
+                }
+            }
+            unset($querys);
+
             //Alter tables to add auto forgein keys
             $querys[] = "ALTER TABLE userStatus ADD FOREIGN KEY (statusID) REFERENCES status(statusID)";
             $querys[] = "ALTER TABLE userStatus ADD FOREIGN KEY (userID) REFERENCES users(userID)";
@@ -64,12 +80,8 @@
             $querys[] = "ALTER TABLE articles ADD FOREIGN KEY (creatorID) REFERENCES users(userID)";
             $querys[] = "ALTER TABLE articles ADD FOREIGN KEY (lastEditorID) REFERENCES users(userID)";
             $querys[] = "ALTER TABLE creditCards ADD FOREIGN KEY (userID) REFERENCES users(userID)";
-
-            //Create user levels
-            $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Utente', 0, 0, 0)";
-            $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Abbonato', 1, 0, 0)";
-            $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Redattore', 1, 1, 0)";
-            $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Direttore', 1, 1, 1)";
+            $querys[] = "ALTER TABLE subscriptions ADD FOREIGN KEY (userID) REFERENCES users(userID)";
+            $querys[] = "ALTER TABLE subscriptions ADD FOREIGN KEY (paymentMethodID) REFERENCES paymentMethods(paymentMethodID)";
 
             foreach ($querys as $query) {
                 $sql->query($query);
@@ -77,6 +89,31 @@
                     die($sql->error);
                 }
             }
+            unset($querys);
+            //Create user levels
+            $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Utente', 0, 0, 0)";
+            $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Abbonato', 1, 0, 0)";
+            $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Redattore', 1, 1, 0)";
+            $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Direttore', 1, 1, 1)";
+            foreach ($querys as $query) {
+                $sql->query($query);
+                if ($sql->error) {
+                    die($sql->error);
+                }
+            }
+            unset($querys);
+            //Create user status
+            $querys[] = "INSERT INTO status (name, active) VALUES ('Attesa', 0)";
+            $querys[] = "INSERT INTO status (name, active) VALUES ('Attivo', 1)";
+            $querys[] = "INSERT INTO status (name, active) VALUES ('Sospeso', 0)";
+
+            foreach ($querys as $query) {
+                $sql->query($query);
+                if ($sql->error) {
+                    die($sql->error);
+                }
+            }
+            unset($querys);
 
             header("location: install.php?_Step=2");
 
@@ -138,6 +175,10 @@
                 die($sql->error);
             }
 
+            $sql->query("INSERT INTO userStatus (userID, statusID) VALUES (1 , 2)");
+            if($sql->error){
+                die($sql->error);
+            }
 
             header("install.php?_Step=3");
         }

@@ -1,5 +1,5 @@
 <?php
-    $databaseHost = 'mysql.danrizzo.dev';
+    $databaseHost = 'localhost';
     $databaseUser = 'marcos';
     $databasePassword = 'M4rc0s';
     $databaseName = 'Giornale';

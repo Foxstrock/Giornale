@@ -2,13 +2,16 @@
     include "header.php";
     if($_SERVER["REQUEST_METHOD"]=="GET"){
         ?>
-        <form method="post" action="#login">
-            E-Mail:<br>
-            <input type="text" id="email" name="email"><br>
-            Password:<br>
-            <input type="password" id="password" name="password"><br>
-            <input type="submit" id="login" name="login" value="Accedi!">
-        </form>
+        <div style="text-align: center;" class="shadow p-3 mb-5 bg-white rounded" with="20%">
+            <h1>Reserved Area</h1>
+            <form method="post" action="#login">
+                E-Mail address<br>
+                <input type="text" id="email" name="email"><br>
+                Password<br>
+                <input type="password" id="password" name="password"><br>
+                <input type="submit" id="login" name="login" value="Accedi!">
+            </form>
+        </div>
         <?php
     }elseif ($_SERVER['REQUEST_METHOD']=="POST"){
         if (isset($_POST['login'])){
