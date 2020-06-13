@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 }
 elseif($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    $PayementMethods = $_GET['PaymentsMethod'];
+    $PayementMethods = $_POST['PaymentsMethod'];
 
     $sql->query("INSERT INTO paymentMethods (name) VALUES ('$PayementMethods')");
 
