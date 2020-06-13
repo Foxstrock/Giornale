@@ -59,9 +59,9 @@
             //Credit Cards table
             $querys[] = "CREATE TABLE creditCards (cardID int NOT NULL PRIMARY KEY AUTO_INCREMENT, cardNumber varchar(19) NOT NULL, cardExpiration date NOT NULL, cardCVV int NOT NULL, cardHolderName varchar(200) NOT NULL, cardHolderSurname varchar(200) NOT NULL, cardHolderAddress varchar(200) NOT NULL, userID int NOT NULL)";
 
-            $querys[] = "CREATE TABLE paymentMethods (paymentMethodsID int NOT NULL PRIMARY KEY AUTO_INCREMENT,name varchar(250) NOT NULL)";
+            $querys[] = "CREATE TABLE paymentMethods (paymentMethodID int NOT NULL PRIMARY KEY AUTO_INCREMENT,name varchar(250) NOT NULL)";
 
-            $querys[] = "CREATE TABLE subscriptions (userID int NOT NULL PRIMARY KEY , subscriptionDate datetime NOT NULL, exirationDate datetime NOT NULL, paymentMethodID int NOT NULL)";
+            $querys[] = "CREATE TABLE subscriptions (subscriptionID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, userID int NOT NULL , subscriptionDate datetime NOT NULL, exirationDate datetime NOT NULL, paymentMethodID int NOT NULL)";
 
             foreach ($querys as $query) {
                 $sql->query($query);
