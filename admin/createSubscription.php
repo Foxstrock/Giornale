@@ -19,13 +19,13 @@
             Utente:
             <select id="user" name="user">
                 <?php echo $userSelect; ?>
-            </select>
+            </select><br>
             Scadenza abbonamento:
-            <input type="date" name="expirationDate">
+            <input type="date" name="expirationDate"><br>
             Metodo di pagemento:
             <select id="paymentMethod" name="paymentMethod">
                 <?php echo $paymentMethodSelect; ?>
-            </select>
+            </select><br>
             <input type="submit" name="submit" value="Inserisci">
         </form>
         <?php
@@ -34,5 +34,11 @@
         $expiryDate = $_POST['expirationDate'];
         $user = $_POST['user'];
         $paymentMethod = $_POST['paymentMethod'];
-        print_r($_POST);
+        $expiryDate = $expiryDate.' 23:59:59';
+        $paymentMethodID = $sql->query("SELECT * FROM paymentMethods WHERE name='$paymentMethod'")->fetch_array()['paymentMethodID'];
+        $userEmail = explode('-', $user)[0];
+        $userEmail = trim($userEmail);
+        $userID = $sql->query("SELECT * users WHERE email = '$userEmail'")->fetch_array()['userID'];
+        $sql->query("INSERT INTO subscriptions (userID,subscriptionDate,exiprationDate,paymentMethodID) VALUES ('$userID','$currentDate','$expiryDate','$paymentMethodID')");
+        header("location: manageSubscriptions.php");
     }
