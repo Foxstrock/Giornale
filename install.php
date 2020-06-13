@@ -63,6 +63,14 @@
 
             $querys[] = "CREATE TABLE subscriptions (userID int NOT NULL, subscriptionDate datetime NOT NULL, exirationDate datetime NOT NULL, paymentMethodID int NOT NULL)";
 
+            foreach ($querys as $query) {
+                $sql->query($query);
+                if ($sql->error) {
+                    die($sql->error);
+                }
+            }
+            unset($querys);
+
             //Alter tables to add auto forgein keys
             $querys[] = "ALTER TABLE userStatus ADD FOREIGN KEY (statusID) REFERENCES status(statusID)";
             $querys[] = "ALTER TABLE userStatus ADD FOREIGN KEY (userID) REFERENCES users(userID)";
@@ -75,12 +83,25 @@
             $querys[] = "ALTER TABLE subscriptions ADD FOREIGN KEY (userID) REFERENCES users(userID)";
             $querys[] = "ALTER TABLE subscriptions ADD FOREIGN KEY (paymentMethods) REFERENCES paymentMethods(paymentMethodID)";
 
+            foreach ($querys as $query) {
+                $sql->query($query);
+                if ($sql->error) {
+                    die($sql->error);
+                }
+            }
+            unset($querys);
             //Create user levels
             $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Utente', 0, 0, 0)";
             $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Abbonato', 1, 0, 0)";
             $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Redattore', 1, 1, 0)";
             $querys[] = "INSERT INTO levels (name, subscriber, editor, director) VALUES ('Direttore', 1, 1, 1)";
-
+            foreach ($querys as $query) {
+                $sql->query($query);
+                if ($sql->error) {
+                    die($sql->error);
+                }
+            }
+            unset($querys);
             //Create user status
             $querys[] = "INSERT INTO status (name, active) VALUES ('Attesa', 0)";
             $querys[] = "INSERT INTO status (name, active) VALUES ('Attivo', 1)";
@@ -92,6 +113,7 @@
                     die($sql->error);
                 }
             }
+            unset($querys);
 
             header("location: install.php?_Step=2");
 
