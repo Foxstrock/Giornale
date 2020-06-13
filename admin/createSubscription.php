@@ -40,5 +40,6 @@
         $userEmail = trim($userEmail);
         $userID = $sql->query("SELECT * users WHERE email = '$userEmail'")->fetch_array()['userID'];
         $sql->query("INSERT INTO subscriptions (userID,subscriptionDate,exiprationDate,paymentMethodID) VALUES ('$userID','$currentDate','$expiryDate','$paymentMethodID')");
+        die($sql->error);
         header("location: manageSubscriptions.php");
     }
